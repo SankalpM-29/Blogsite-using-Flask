@@ -1,1 +1,4 @@
 __pycache__/
+site.db
+flask_blog/__pycache__
+flask_blog/site.db
