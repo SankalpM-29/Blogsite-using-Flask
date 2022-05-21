@@ -1,5 +1,7 @@
+import os
 from email.mime import image
 from flask import request
+from PIL import Image
 from flask_blog.models import User, Post
 from flask import render_template, url_for, flash, redirect
 from flask_blog.forms import RegistrationForm, LoginForm, UpdateAccountForm
@@ -67,11 +69,27 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route("/account")
+def save_picture(form_picture):
+    filename = current_user.username
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = filename + f_ext
+    picture_path = os.path.join(app.root_path, "static/images", picture_fn)
+
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn
+
+@app.route("/account", methods = ['GET', 'POST'])
 @login_required
 def account():
     form = UpdateAccountForm()
     if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
