@@ -3,3 +3,7 @@ site.db
 flask_blog/__pycache__
 flask_blog/site.db
 flask_blog/static/images/
+.env
+flask_blog/main/__pycache__
+flask_blog/posts/__pycache__
+flask_blog/users/__pycache__
