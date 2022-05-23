@@ -7,3 +7,4 @@ flask_blog/static/images/
 flask_blog/main/__pycache__
 flask_blog/posts/__pycache__
 flask_blog/users/__pycache__
+flask_blog/errors/__pycache__
