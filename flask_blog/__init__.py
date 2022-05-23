@@ -1,6 +1,3 @@
-import os
-from distutils.log import debug
-import logging
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -23,6 +20,8 @@ def create_app(config_class = Config):
     app = Flask(__name__)
     app.config.from_object(Config)
     db.init_app(app)
+    # with app.app_context():
+    #     db.create_all()
     bcrypt.init_app(app)
     login_manager.init_app(app)
     mail.init_app(app)
@@ -36,5 +35,6 @@ def create_app(config_class = Config):
     app.register_blueprint(posts)
     app.register_blueprint(main)
     app.register_blueprint(errors)
-
+    app.app_context().push()
+    db.create_all()
     return app
