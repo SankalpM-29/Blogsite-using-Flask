@@ -2,7 +2,7 @@ __pycache__/
 site.db
 flask_blog/__pycache__
 flask_blog/site.db
-# flask_blog/static/images/
+flask_blog/static/images/default.png
 .env
 flask_blog/main/__pycache__
 flask_blog/posts/__pycache__
