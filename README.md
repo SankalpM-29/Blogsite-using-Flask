@@ -30,3 +30,8 @@ Using ORM features of Flask-SQLAlchemy to create a website for users to publish 
          alt="user table structure" width="600" height="500">
     
 </figure>
+
+## Deployment
+
+Web App: **Heroku**
+Database: **Heroku Postgres** 
