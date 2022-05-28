@@ -33,5 +33,5 @@ Using ORM features of Flask-SQLAlchemy to create a website for users to publish 
 
 ## Deployment
 
-Web App: **Heroku**
+Web App: **Heroku**<br>
 Database: **Heroku Postgres** 
